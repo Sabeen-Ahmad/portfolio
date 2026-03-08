@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sabeen Ahmad's portfolio</title>
+<link rel="icon" type="image/png" href="files/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 4rem;
+      gap: 3rem;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .big-type {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 15vw, 15rem);
+      line-height: 0.88;
+      color: #fff;
+      user-select: none;
+    }
+    .big-type span { display: block; }
+
+    .side-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+    }
+
+    .card {
+      flex-shrink: 0;
+      width: clamp(220px, 28vw, 400px);
+      height: clamp(300px, 70vh, 600px);
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ✅ Photo fills the card */
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    .countdown {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="left">
+    <div class="big-type">
+      <span>PORT</span>
+      <span>FOLIO.</span>
+    </div>
+    <div class="side-text">More of God — Less of Me</div>
+  </div>
+
+  <div class="card">
+    <!-- ✅ Change "your-photo.jpg" to your actual photo filename -->
+    <img src="files/sabeen.png" alt="My Photo" />
+  </div>
+
+</div>
+
+<div class="countdown" id="countdown">Redirecting in 5s</div>
+
+<script>
+  // 🔗 Change this to your portfolio URL
+  const PORTFOLIO_URL = 'landing.html';
+
+  let s = 5;
+  const el = document.getElementById('countdown');
+  const iv = setInterval(() => {
+    s--;
+    if (s <= 0) {
+      clearInterval(iv);
+      window.location.href = PORTFOLIO_URL;
+    } else {
+      el.textContent = `Redirecting in ${s}s`;
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>

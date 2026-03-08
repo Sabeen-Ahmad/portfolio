@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabeen Ahmad's portfolio</title>
+<link rel="icon" type="image/png" href="files/icon.png">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="h-full">
+
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
+
+  <div id="app-wrapper" class="min-h-full w-full overflow-auto">
+
+    <!-- ============================================================
+         NAVIGATION
+    ============================================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5">
+        <div class="flex items-center justify-between">
+
+          <a href="#hero" class="font-display font-bold text-2xl text-black animate-fade">
+            <span id="nav-logo">Portfolio</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden md:flex items-center gap-10">
+            <a href="#about"   class="nav-link text-sm font-medium text-gray-700">About</a>
+            <a href="#work"    class="nav-link text-sm font-medium text-gray-700">Work</a>
+            <a href="#skills"  class="nav-link text-sm font-medium text-gray-700">Skills</a>
+            <a href="#contact" class="nav-link text-sm font-medium text-gray-700">Contact</a>
+            <a href="files/sak_resume.pdf" target="_blank"
+               class="hero-btn px-6 py-2.5 border border-black text-black text-sm font-medium hover:bg-black hover:text-white">
+              Get CV
+            </a>
+
+            <!-- SLIDING DARK MODE TOGGLE -->
+            <div class="toggle-wrap" title="Toggle dark mode">
+              <label class="toggle-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="dark-toggle-input" />
+                <div class="toggle-track"></div>
+                <div class="toggle-thumb"></div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Hamburger -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         MOBILE MENU
+    ============================================================ -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-white md:hidden">
+      <div class="flex flex-col h-full p-8">
+        <div class="flex justify-between items-center">
+          <label class="toggle-switch" aria-label="Toggle dark mode">
+            <input type="checkbox" onchange="document.getElementById('dark-toggle-input').checked=this.checked; document.getElementById('dark-toggle-input').dispatchEvent(new Event('change'));" />
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+          <button id="close-menu-btn" class="p-2 text-black">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 gap-8">
+          <a href="#about"   class="mobile-nav-link text-2xl font-display font-bold text-black">About</a>
+          <a href="#work"    class="mobile-nav-link text-2xl font-display font-bold text-black">Work</a>
+          <a href="#skills"  class="mobile-nav-link text-2xl font-display font-bold text-black">Skills</a>
+          <a href="#contact" class="mobile-nav-link text-2xl font-display font-bold text-black">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative px-6 pt-24 pb-16 overflow-hidden">
+
+      <!-- Floating blobs -->
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <p class="text-xs font-semibold tracking-[0.25em] uppercase text-gray-500 mb-6
+                   animate-slide-up opacity-0" style="animation-fill-mode:forwards;">
+          ✦ Available for freelance work
+        </p>
+
+        <h1 class="font-display font-bold text-6xl sm:text-7xl lg:text-9xl mb-6 leading-tight
+                   animate-slide-up opacity-0 text-black" style="animation-fill-mode:forwards; animation-delay:0.1s;">
+          Hi, I'm <span id="hero-name" class="name-shimmer">Sabeen Ahmad</span>
+        </h1>
+
+        <p id="hero-title"
+           class="text-xl sm:text-2xl text-gray-600 font-light mb-5
+                  animate-slide-up opacity-0 delay-200" style="animation-fill-mode:forwards;">
+          Mobile Application Developer &amp; Learning to Build Better Mobile Apps
+        </p>
+
+        <p id="hero-tagline"
+           class="text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed
+                  animate-slide-up opacity-0 delay-300" style="animation-fill-mode:forwards;">
+          Creating elegant, functional digital experiences that solve real problems and inspire users.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5
+                    animate-slide-up opacity-0 delay-400" style="animation-fill-mode:forwards;">
+          <a href="#work"    class="hero-btn px-9 py-3.5 bg-black text-white text-sm font-semibold hover:bg-gray-800">View My Work</a>
+          <a href="#contact" class="hero-btn px-9 py-3.5 border border-black text-black text-sm font-semibold hover:bg-black hover:text-white">Get In Touch</a>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="scroll-indicator">
+          <div class="scroll-dot"></div>
+          <div class="scroll-dot"></div>
+          <div class="scroll-dot"></div>
+          <span class="scroll-label">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+    <section id="about" class="py-20 lg:py-32 px-6 lg:px-12 bg-white border-t border-gray-200">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <div class="reveal-left">
+            <span class="section-line"></span>
+            <h2 class="font-display font-bold text-5xl sm:text-6xl mb-8 text-black">About Me</h2>
+            <p id="about-text" class="text-lg text-gray-700 leading-relaxed mb-5">
+              I'm a student and aspiring mobile app developer. Over the past year, I've focused on building
+              Flutter applications, exploring Firebase integration, and improving my UI/UX design skills.
+              I enjoy creating apps that are simple, functional, and user-friendly, and I'm always eager
+              to learn new technologies and take on challenges.
+            </p>
+
+            <div class="space-y-4">
+              <div class="bullet-item flex items-center gap-3">
+                <div class="bullet-dot w-3 h-3 bg-black rounded-full flex-shrink-0"></div>
+                <span class="text-gray-700">2 years of professional experience</span>
+              </div>
+              <div class="bullet-item flex items-center gap-3">
+                <div class="bullet-dot w-3 h-3 bg-black rounded-full flex-shrink-0"></div>
+                <span class="text-gray-700">20 projects completed</span>
+              </div>
+              <div class="bullet-item flex items-center gap-3">
+                <div class="bullet-dot w-3 h-3 bg-black rounded-full flex-shrink-0"></div>
+                <span class="text-gray-700">Flutter, Dart &amp; Mobile App Development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stat cards with counter animation -->
+          <div class="reveal-right" style="transition-delay:0.15s;">
+            <div class="grid grid-cols-2 gap-6">
+
+              <div class="stat-card p-8 bg-gray-50 rounded">
+                <p class="text-4xl font-display font-bold text-black mb-1">
+                  <span data-count="20" data-suffix="+">20+</span>
+                </p>
+                <p class="text-gray-600 text-sm">Projects Completed</p>
+              </div>
+
+              <div class="stat-card p-8 bg-gray-50 rounded" style="transition-delay:0.1s;">
+                <p class="text-4xl font-display font-bold text-black mb-1">
+                  <span data-count="10" data-suffix="+">10+</span>
+                </p>
+                <p class="text-gray-600 text-sm">Skills Learned</p>
+              </div>
+
+              <div class="stat-card p-8 bg-gray-50 rounded" style="transition-delay:0.2s;">
+                <p class="text-4xl font-display font-bold text-black mb-1">
+                  <span data-count="2" data-suffix="+">2+</span>
+                </p>
+                <p class="text-gray-600 text-sm">Years of Learning</p>
+              </div>
+
+              <div class="stat-card p-8 bg-gray-50 rounded" style="transition-delay:0.3s;">
+                <p class="text-4xl font-display font-bold text-black mb-1">∞</p>
+                <p class="text-gray-600 text-sm">Passion</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WORK
+    ============================================================ -->
+    <section id="work" class="py-20 lg:py-32 px-6 lg:px-12 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="mb-16 reveal">
+          <span class="section-line"></span>
+          <h2 class="font-display font-bold text-5xl sm:text-6xl text-black mb-3"> Work</h2>
+          <p class="text-lg text-gray-500">Flutter apps I've built, shipped, and continue to grow.</p>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             1. ONGOING PROJECTS
+        ══════════════════════════════════════ -->
+        <div class="mb-20 reveal" style="transition-delay:0.05s;">
+          <div class="flex items-center gap-3 mb-10">
+            <span class="project-category-dot ongoing"></span>
+            <h3 class="font-display font-bold text-2xl text-black">Ongoing Projects</h3>
+            <div class="flex-1 h-px bg-gray-200 ml-2"></div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-6">
+
+            <!-- LingoLens -->
+            <div class="reveal ongoing-card" style="transition-delay:0s;">
+              <div class="ongoing-thumb project-img-lingolens">
+                <i data-lucide="languages" class="w-10 h-10" style="color:rgba(255,255,255,0.8);"></i>
+              </div>
+              <div class="ongoing-body">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-display font-bold text-lg text-black">LingoLens</h4>
+                  <span class="ongoing-badge">In Progress</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                  AI-powered language learning app with dynamic quiz generation, vocabulary tracking,
+                  and real-time user progress analytics via Firebase &amp; REST APIs.
+                </p>
+                <div class="flex gap-1.5 flex-wrap">
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">AI / ML</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Firebase</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- StackFix -->
+            <div class="reveal ongoing-card" style="transition-delay:0.08s;">
+              <div class="ongoing-thumb project-img-stackfix">
+                <i data-lucide="bug" class="w-10 h-10" style="color:rgba(255,255,255,0.8);"></i>
+              </div>
+              <div class="ongoing-body">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-display font-bold text-lg text-black">StackFix</h4>
+                  <span class="ongoing-badge">In Progress</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                  Developer issue tracking app — manage bugs, feature requests &amp; issue lifecycles
+                  with priority tagging, categorization, and status-based workflows.
+                </p>
+                <div class="flex gap-1.5 flex-wrap">
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Clean Arch</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">State Mgmt</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft Bloom -->
+            <div class="reveal ongoing-card" style="transition-delay:0.16s;">
+              <div class="ongoing-thumb project-img-softbloom">
+                <i data-lucide="flower-2" class="w-10 h-10" style="color:rgba(255,255,255,0.8);"></i>
+              </div>
+              <div class="ongoing-body">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-display font-bold text-lg text-black">Soft Bloom</h4>
+                  <span class="ongoing-badge">In Progress</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                  A mindfulness &amp; wellness mobile app focused on calm, elegant design
+                  and intuitive user flows for everyday mental well-being.
+                </p>
+                <div class="flex gap-1.5 flex-wrap">
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">UI/UX</span>
+                  <span class="px-2.5 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Firebase</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             2. FEATURED PROJECTS (YouTube embeds)
+        ══════════════════════════════════════ -->
+        <div class="mb-20 reveal" style="transition-delay:0.08s;">
+          <div class="flex items-center gap-3 mb-12">
+            <span class="project-category-dot"></span>
+            <h3 class="font-display font-bold text-2xl text-black">Featured Projects</h3>
+            <div class="flex-1 h-px bg-gray-200 ml-2"></div>
+          </div>
+
+          <div class="space-y-16">
+
+            <!-- Employee Management System -->
+           <div class="reveal project-card" style="transition-delay:0s;">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <a href="https://youtu.be/t79uPBglhBE" target="_blank" rel="noopener noreferrer"
+       class="order-2 md:order-1 yt-thumb-card rounded-xl overflow-hidden shadow-lg">
+      <div class="yt-thumb-inner">
+        <svg class="yt-play-icon" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+          <path d="M45 24 27 14v20" fill="#fff"/>
+        </svg>
+        <span class="yt-thumb-label">Watch Demo</span>
+      </div>
+    </a>
+    <div class="order-1 md:order-2">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="proj-badge-featured">FEATURED</span>
+        <span class="text-xs font-bold tracking-widest text-gray-400">2025</span>
+      </div>
+      <h3 class="font-display font-bold text-3xl sm:text-4xl text-black mb-4">
+        Employee Management System
+      </h3>
+      <p class="text-gray-600 mb-5 leading-relaxed">
+        A full-featured Flutter + Firebase app with role-based dashboards for Admin and Students.
+        Includes modules for attendance management, fee tracking, announcements, and registrations,
+        all powered by real-time Firestore synchronization.
+      </p>
+      <ul class="space-y-2 mb-6 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Role-based dashboards (Admin / Student) with Firebase Auth</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Attendance, fee tracking, announcements &amp; registration modules</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Real-time synchronization via Firestore</li>
+      </ul>
+      <div class="flex gap-2 flex-wrap mb-6">
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Flutter</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Firebase</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Firestore</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Auth</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">RBAC</span>
+      </div>
+      <a href="https://youtu.be/t79uPBglhBE" target="_blank" rel="noopener noreferrer"
+         class="project-link inline-flex items-center gap-2 text-sm font-semibold text-black">
+        <i data-lucide="youtube" class="w-4 h-4"></i> Watch Demo
+      </a>
+    </div>
+  </div>
+</div>
+
+            <!-- Task Management App -->
+            <div class="reveal project-card" style="transition-delay:0.1s;">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <a href="https://youtu.be/NLVUvuOG8tI" target="_blank" rel="noopener noreferrer"
+       class="yt-thumb-card rounded-xl overflow-hidden shadow-lg">
+      <div class="yt-thumb-inner">
+        <svg class="yt-play-icon" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+          <path d="M45 24 27 14v20" fill="#fff"/>
+        </svg>
+        <span class="yt-thumb-label">Watch Demo</span>
+      </div>
+    </a>
+    <div>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="proj-badge-featured">FEATURED</span>
+        <span class="text-xs font-bold tracking-widest text-gray-400">2026</span>
+      </div>
+      <h3 class="font-display font-bold text-3xl sm:text-4xl text-black mb-4">
+        Task Management App
+      </h3>
+      <p class="text-gray-600 mb-5 leading-relaxed">
+        A MVP productivity-focused Flutter task manager with intuitive task creation,
+        priority tagging, status tracking, and clean UI. Designed for teams and
+        individuals who want a smooth, distraction-free workflow.
+      </p>
+      <ul class="space-y-2 mb-6 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Task creation, priority tagging &amp; status-based workflows</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Clean architecture with efficient state management</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Productivity-oriented, distraction-free UI</li>
+      </ul>
+      <div class="flex gap-2 flex-wrap mb-6">
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Flutter</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Dart</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Provider</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Firebase</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Clean Arch</span>
+      </div>
+      <a href="https://youtu.be/NLVUvuOG8tI" target="_blank" rel="noopener noreferrer"
+         class="project-link inline-flex items-center gap-2 text-sm font-semibold text-black">
+        <i data-lucide="youtube" class="w-4 h-4"></i> Watch Demo
+      </a>
+    </div>
+  </div>
+</div>
+            <!-- RepoGuide -->
+           <div class="reveal project-card" style="transition-delay:0.2s;">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <a href="https://youtube.com/shorts/UPkFJpCTy2g" target="_blank" rel="noopener noreferrer"
+       class="order-2 md:order-1 yt-thumb-card rounded-xl overflow-hidden shadow-lg">
+      <div class="yt-thumb-inner">
+        <svg class="yt-play-icon" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+          <path d="M45 24 27 14v20" fill="#fff"/>
+        </svg>
+        <span class="yt-thumb-label">Watch Demo</span>
+      </div>
+    </a>
+    <div class="order-1 md:order-2">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="proj-badge-hackathon">HACKATHON</span>
+        <span class="text-xs font-bold tracking-widest text-gray-400">Google 2026</span>
+      </div>
+      <h3 class="font-display font-bold text-3xl sm:text-4xl text-black mb-4">
+        RepoGuide
+      </h3>
+      <p class="text-gray-600 mb-5 leading-relaxed">
+        A GitHub Repository Learning Assistant built for the Google Hackathon.
+        Helps developers understand repository structure, onboarding processes,
+        and codebase navigation through structured project visualization.
+      </p>
+      <ul class="space-y-2 mb-6 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>REST API integration to fetch &amp; display repo data dynamically</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Structured project visualization to simplify repo exploration</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>Modular, scalable, and maintainable architecture</li>
+      </ul>
+      <div class="flex gap-2 flex-wrap mb-6">
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Flutter</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">GitHub API</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">REST API</span>
+        <span class="tag-badge px-3 py-1.5 bg-white text-gray-700 text-xs font-semibold rounded-full border border-gray-200">Clean Arch</span>
+      </div>
+      <a href="https://youtube.com/shorts/UPkFJpCTy2g" target="_blank" rel="noopener noreferrer"
+         class="project-link inline-flex items-center gap-2 text-sm font-semibold text-black">
+        <i data-lucide="youtube" class="w-4 h-4"></i> Watch Demo
+      </a>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+             3. HOBBY PROJECTS (small image cards)
+        ══════════════════════════════════════ -->
+        <div class="reveal" style="transition-delay:0.12s;">
+          <div class="flex items-center gap-3 mb-10">
+            <span class="project-category-dot hobby"></span>
+            <h3 class="font-display font-bold text-2xl text-black">Hobby Projects</h3>
+            <div class="flex-1 h-px bg-gray-200 ml-2"></div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Sizzle AI -->
+            <div class="reveal hobby-card" style="transition-delay:0.15s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/quiz.png" alt="Sizzle AI Quiz Generator" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">Sizzle AI — Quiz Generator</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">AI-powered MCQ generator using NGROK + Open Trivia DB API.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Python</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">NGROK</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/quiz_app" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7354373983636484096/" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="external-link" class="w-3 h-3"></i> Demo</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flutter Music Player -->
+            <div class="reveal hobby-card" style="transition-delay:0.2s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/music.png" alt="Flutter Music Player" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">Flutter Music Player</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">Playlist, shuffle, seekbar — MVVM + Provider architecture.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">audioplayers</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">MVVM</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/music_player_app" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/posts/sabeen-ahmad-0103012a3_flutter-musicapp-audioplayers-activity-7304506277588566016-N06S" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="external-link" class="w-3 h-3"></i> Demo</a>
+                </div>
+              </div>
+            </div>
+
+             <!-- Coffee Ordering App -->
+            <div class="reveal hobby-card" style="transition-delay:0.1s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/cafe.jpeg" alt="Coffee Ordering App" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">Coffee Ordering App</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">Browse, customize and order coffee with payment integration.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Firebase</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Payments</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/cafe_app" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/posts/sabeen-ahmad-0103012a3_flutter-coffeelovers-mobileappdevelopment-activity-7277584537470013441-HTb8" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="external-link" class="w-3 h-3"></i> Demo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sneakers E-Commerce -->
+            <div class="reveal hobby-card" style="transition-delay:0s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/e.jpeg" alt="Sneakers E-Commerce App" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">Sneakers E-Commerce</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">Cart, wishlist, smooth navigation and secure checkout for sneaker lovers.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Firebase</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Provider</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/e-commerce_app" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/posts/sabeen-ahmad-0103012a3_im-thrilled-to-share-a-glimpse-into-my-flutter-activity-7277807924364611585-UNkt" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="external-link" class="w-3 h-3"></i> Demo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- BMI Calculator -->
+            <div class="reveal hobby-card" style="transition-delay:0.05s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/m.png" alt="Body Mass Calculator" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">Body Mass Calculator</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">Elegant BMI calculator with height/weight inputs and instant results.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Dart</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Custom UI</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/finance-tracker" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <a href="https://www.linkedin.com/posts/sabeen-ahmad-0103012a3_im-excited-to-share-my-latest-flutter-projecta-activity-7280658455416164353-u0qz" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="external-link" class="w-3 h-3"></i> Demo</a>
+                </div>
+              </div>
+            </div>  
+
+            <!-- COVID-19 Tracker -->
+            <div class="reveal hobby-card" style="transition-delay:0.25s;">
+              <div class="hobby-thumb-img rounded-xl overflow-hidden">
+                <img src="files/covid.png" alt="COVID-19 Tracker" class="w-full h-full object-cover" />
+              </div>
+              <div class="hobby-body">
+                <h4 class="font-display font-bold text-base text-black mb-1.5">COVID-19 Tracker</h4>
+                <p class="text-gray-500 text-xs leading-relaxed mb-3">Real-time global &amp; regional case stats with interactive charts.</p>
+                <div class="flex gap-1.5 flex-wrap mb-3">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Flutter</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">REST API</span>
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">Charts</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/Sabeen-Ahmad134/covid-tracker-app" target="_blank" rel="noopener noreferrer" class="project-link inline-flex items-center gap-1 text-xs font-semibold text-black"><i data-lucide="github" class="w-3 h-3"></i> GitHub</a>
+                  <span class="inline-flex items-center gap-1 text-xs font-semibold text-gray-300 cursor-not-allowed select-none"><i data-lucide="external-link" class="w-3 h-3"></i> No Demo</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============================================================
+         SKILLS
+    ============================================================ -->
+    <section id="skills" class="py-20 lg:py-32 px-6 lg:px-12 bg-white border-t border-gray-200">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="mb-16 reveal">
+          <span class="section-line"></span>
+          <h2 class="font-display font-bold text-5xl sm:text-6xl text-black">Skills</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-14">
+
+          <!-- Dev skill bars -->
+          <div class="reveal-left">
+            <h3 class="font-semibold text-lg text-black mb-8">Development</h3>
+            <div class="space-y-6">
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">Flutter / Dart</span>
+                  <span class="text-gray-400 text-sm">95%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="95%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">Laravel / PHP</span>
+                  <span class="text-gray-400 text-sm">60%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="60%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">FastAPI / Python</span>
+                  <span class="text-gray-400 text-sm">85%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">Firebase / Firestore</span>
+                  <span class="text-gray-400 text-sm">90%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="90%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">API Integration / REST</span>
+                  <span class="text-gray-400 text-sm">87%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="87%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">Provider / Riverpod</span>
+                  <span class="text-gray-400 text-sm">80%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">UI/UX Design</span>
+                  <span class="text-gray-400 text-sm">82%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="82%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 text-sm font-medium">NGROK / Local Hosting</span>
+                  <span class="text-gray-400 text-sm">78%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-bar-fill" data-width="78%"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Tool tags -->
+          <div class="reveal-right" style="transition-delay:0.12s;">
+            <h3 class="font-semibold text-lg text-black mb-8">Design &amp; Tools</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">Laravel</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">FastAPI</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">AI Integration</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">Firebase</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">API</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">VS Code</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">GitHub</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">Ngrok</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">API Integration</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">UI/UX</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">Provider</p>
+              </div>
+              <div class="skill-tag p-4 bg-gray-100 rounded-lg text-center cursor-pointer">
+                <p class="text-sm text-gray-700 font-medium">Riverpod</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section id="contact" class="py-20 lg:py-32 px-6 lg:px-12 bg-black text-white">
+      <div class="max-w-4xl mx-auto text-center reveal">
+        <span class="section-line mx-auto" style="background:#fff;"></span>
+        <h2 class="font-display font-bold text-5xl sm:text-6xl mb-5">Let's Work Together</h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+          Have a project in mind? Let's create something amazing together. Reach out and let's talk.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-6 mb-12">
+          <div class="contact-card p-8 bg-gray-900 rounded-lg">
+            <p class="text-xs font-bold tracking-widest text-gray-500 mb-2">EMAIL</p>
+            <p id="contact-email" class="text-xl font-semibold text-white hover:text-gray-300 transition-colors cursor-pointer">
+              sabeenahmaddev@gmail.com
+            </p>
+          </div>
+          <div class="contact-card p-8 bg-gray-900 rounded-lg">
+            <p class="text-xs font-bold tracking-widest text-gray-500 mb-2">LOCATION</p>
+            <p id="contact-location" class="text-xl font-semibold text-white hover:text-gray-300 transition-colors cursor-pointer">
+              Nankana Sahib, Pakistan
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-4 mb-12">
+          <a href="https://github.com/Sabeen-Ahmad" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sabeen-ahmad-0103012a3/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+          <a href="https://www.youtube.com/@SabeenAhmad-v1y4f" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i data-lucide="youtube" class="w-5 h-5"></i>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i data-lucide="dribbble" class="w-5 h-5"></i>
+          </a>
+        </div>
+
+        <!-- Opens contact modal -->
+        <button id="open-contact-modal"
+                class="hero-btn inline-block px-10 py-4 bg-white text-black text-sm font-semibold hover:bg-gray-200 cursor-pointer border-0">
+          Send me a message
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT MODAL
+    ============================================================ -->
+    <div id="contact-modal" class="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+      <div class="modal-box">
+
+        <!-- Close -->
+        <button id="close-contact-modal" class="modal-close" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="mb-8">
+          <p class="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">Get in touch</p>
+          <h3 id="modal-title" class="font-display font-bold text-3xl text-black">Send a Message</h3>
+          <p class="text-gray-500 text-sm mt-2">I'll get back to you within 24 hours.</p>
+        </div>
+
+        <!-- Form -->
+        <div id="contact-form-wrap">
+          <div class="space-y-5">
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div class="field-wrap">
+                <label class="field-label">Name</label>
+                <input id="f-name" type="text" placeholder="Your name" class="field-input" />
+                <span class="field-error" id="err-name"></span>
+              </div>
+              <div class="field-wrap">
+                <label class="field-label">Email</label>
+                <input id="f-email" type="email" placeholder="you@example.com" class="field-input" />
+                <span class="field-error" id="err-email"></span>
+              </div>
+            </div>
+
+            <div class="field-wrap">
+              <label class="field-label">Subject</label>
+              <input id="f-subject" type="text" placeholder="Project inquiry / collaboration …" class="field-input" />
+              <span class="field-error" id="err-subject"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label class="field-label">Message</label>
+              <textarea id="f-message" rows="5" placeholder="Tell me about your project …" class="field-input resize-none"></textarea>
+              <span class="field-error" id="err-message"></span>
+            </div>
+
+            <button id="send-msg-btn"
+                    class="modal-send-btn w-full py-3.5 bg-black text-white text-sm font-semibold">
+              <span id="send-label" class="inline-flex items-center justify-center gap-2">
+                Send Message <i data-lucide="send" class="w-4 h-4"></i>
+              </span>
+              <span id="send-spinner" class="hidden inline-flex items-center justify-center gap-2">
+                <svg class="spinner w-4 h-4" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"
+                          stroke-dasharray="31.4" stroke-dashoffset="10"/>
+                </svg>
+                Sending…
+              </span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Success state -->
+        <div id="contact-success" class="hidden text-center py-8">
+          <div class="success-icon mx-auto mb-5">
+            <i data-lucide="check" class="w-8 h-8 text-white"></i>
+          </div>
+          <h4 class="font-display font-bold text-2xl text-black mb-2">Message Sent! </h4>
+          <p class="text-gray-500 text-sm">Thanks for reaching out. I'll reply within 24 hours.</p>
+          <button id="send-another-btn"
+                  class="mt-6 text-sm font-semibold text-black underline underline-offset-4 hover:text-gray-500 transition-colors">
+            Send another message
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="py-8 px-6 lg:px-12 bg-black border-t border-gray-800 text-gray-500">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm">© 2026 Sabeen Ahmad. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="text-sm hover:text-white transition-colors">Privacy</a>
+          <a href="#" class="text-sm hover:text-white transition-colors">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /#app-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
