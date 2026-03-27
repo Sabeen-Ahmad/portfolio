@@ -26,7 +26,7 @@ const defaultConfig = {
     hero_title:       'Mobile Application Developer & UI/UX Designer',
     hero_tagline:     'Creating elegant, functional digital experiences that solve real problems and inspire users.',
     about_text:       `I'm a student and aspiring mobile app developer. Over the past year, I've focused on building Flutter applications, exploring Firebase integration, and improving my UI/UX design skills. I enjoy creating apps that are simple, functional, and user-friendly, and I'm always eager to learn new technologies and take on challenges.`,
-    contact_email:    'sabeenahmaddev@gmail.com',
+    contact_email:    'sabeenahamddev@gmail.com',
     contact_location: 'Nankana Sahib, Pakistan',
     font_family:      'Inter',
     font_size:        16
